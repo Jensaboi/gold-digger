@@ -1,0 +1,21 @@
+{
+  "name": "gold-digger",
+  "version": "1.0.0",
+  "description": "My first node project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jensaboi/gold-digger.git"
+  },
+  "author": "jens lundin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jensaboi/gold-digger/issues"
+  },
+  "type": "module",
+  "homepage": "https://github.com/Jensaboi/gold-digger#readme"
+}
