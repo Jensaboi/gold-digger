@@ -21,11 +21,22 @@ form.addEventListener("submit", e => {
 
   const fd = new FormData(form);
 
+  const investmentAmount = fd.get("investment-amount");
+  const goldPriceFloat = parseFloat(priceDisplayEl.textContent);
+  const amountPaidFloat = parseFloat(investmentAmount);
+
   const investment = {
-    date: new Date().toISOString(),
-    goldPrice: priceDisplayEl.textContent,
-    buyPrice: fd.get("investment-amount"),
+    amountPaid: amountPaidFloat,
+    goldPrice: goldPriceFloat,
   };
 
-  console.log(investment);
+  fetch("/api", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(investment),
+  })
+    .then(res => res.json())
+    .then(data => {
+      //console.log(data)
+    });
 });
