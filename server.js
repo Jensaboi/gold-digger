@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
   if (req.url.startsWith("/api")) {
     if (req.method === "GET" && req.url === "/api") {
       //handle get req
-    } else if (req.method === "POST") {
+    } else if (req.method === "POST" && req.url === "/api") {
       //handle post req
       handlePost(req, res, __dirname);
     } else if (req.url === "/api/gold/live" && req.method === "GET") {
@@ -22,7 +22,10 @@ const server = http.createServer((req, res) => {
 
       setInterval(() => {
         res.write(
-          `data: ${JSON.stringify({ event: "Gold price", price: generateRandomGoldPrice() })}\n\n`
+          `data: ${JSON.stringify({
+            event: "Gold price",
+            price: generateRandomGoldPrice(),
+          })}\n\n`
         );
       }, 3000);
     }
